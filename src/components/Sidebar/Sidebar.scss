@@ -1,0 +1,111 @@
+.sidebar {
+    display: flex;
+    flex: 0.3; // 横幅の30%指定
+    height: 100vh;
+    // background-color: #37393f; //TO-Do あとでホームに設定する背景色
+
+    .sidebarLeft {
+        display: flex;//これで横並びになるが…
+        flex-direction: column;//これで縦並びになる
+        align-items: center;
+        background-color: #202225;
+        padding: 7px 15px;
+
+        .ServerIcon {
+            width: 60px;
+            height: 60px;
+            background-color: #37393f;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            position: relative; //親にしている
+            margin-top: 5px;
+
+            img {
+                position:absolute; //子にしている
+                width: 50px;
+                top: 50%; //親に対してどの位置かを決める
+                left: 50%; //親に対してどの位置かを決める
+                transform: translate(-50%, -50%); //よくわからんが上記に加えこの行で調整できた
+            }
+        }
+    }
+
+    .sidebarRight {
+        background-color: #2f3137;
+        width: 300px;
+        position: relative; // .sidebarFooterの"position:absolute"と連動してる（こちらが親）
+        flex-grow: 1;   // これないとsidebarとchat画面の間に余白ができる
+
+        .sidebarTop {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; //centerにすると下向き矢印が中央に来てします
+            padding: 20px;
+        }
+
+        .sidebarChannels {
+            padding: 13px;
+
+            .sidebarChannelsHeader {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 5px;
+                color: white;
+
+                .sidebarHeader {
+                    display: flex;
+                }
+                
+                .sidebarAddIcon {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .sidebarFooter {
+            position: absolute; //この行と、（.sidebarRightの"position:relative"と連動している。こちらが子）
+            bottom: 0;          //この行で、フッターが一番下にいく
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 93%;
+            padding-bottom: 10px;
+            border-top: 1px solid #686a6e;
+            padding-top: 10px;
+
+            .sidebarAccount {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 50px;
+                    margin: 5px 5px 5px 10px;
+                    border-radius: 50%;
+                }
+
+                .accountName{
+                    margin-left: 5px;
+
+                    h4 {
+                        color: white;
+                        font-weight: 500;
+                    }
+
+                    span {
+                        color: #686a6e;
+                    }
+                }
+
+
+            }
+
+            .sidebarVoice {
+                display: flex;
+                align-items: center;
+                color: #686a6e;
+            }
+        }
+    }
+}
